@@ -46,4 +46,18 @@ Image with dynamic legend of two legends, Christiano Ronaldo and Lionel Messi:
 <br>
 ![alt tag](https://github.com/baidrahul9/DAN-Data-Visualisation/blob/master/images/Final_2.png)
 </br>
+</br>
+**Resources:**
+<br>
+1. Dimple.js
+<br>2. D3.js
+<br>3. Udacity Nanodegree
+<br>
+<br>
+**Files:**
+<br>
+1. index.html
+<br>2. Football_Data.csv
+<br>3. index_trial1.html
+<br>4. /images/
 
