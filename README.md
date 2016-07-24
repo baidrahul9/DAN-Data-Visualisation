@@ -10,7 +10,7 @@ The dataset being used in this project was collected via Wikipedia and it is a p
 Since I wanted to show the players’ performance across the years, I chose line chart to display the trends in time. The feature that we are trying to compare is that of goals scored per season by the top goal scorers. The number of goals in a season is defined by the number of goals scored in that season to the total number of appearances in that season.
 I used Dimple.js and D3.js to create my visualizations. The first chart I came up is drawn below and this chart was created with the expectation that the user understands the idea behind the line chart being displayed. Below is the image of index_trial1.html, which shows the basic outlay of the chart.
 <br>
-![alt tag](http://url/to/img.png)
+![alt tag](https://github.com/baidrahul9/DAN-Data-Visualisation/blob/master/images/Initial.png)
 <br>
 <br>
 **Feedback #1:**
