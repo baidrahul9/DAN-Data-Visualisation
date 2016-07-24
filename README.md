@@ -40,10 +40,10 @@ Since this was my first D3 and Dimple project, I believe I have added enough int
 <br>
 Image without dynamic legend:
 <br>
-![alt tag](http://url/to/img.png)
+![alt tag](https://github.com/baidrahul9/DAN-Data-Visualisation/blob/master/images/Final_1.png)
 <br>
 Image with dynamic legend of two legends, Christiano Ronaldo and Lionel Messi:
 <br>
-![alt tag](http://url/to/img.png)
+![alt tag](https://github.com/baidrahul9/DAN-Data-Visualisation/blob/master/images/Final_2.png)
 </br>
 
