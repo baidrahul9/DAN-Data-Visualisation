@@ -11,7 +11,7 @@ I chose the Spanish league because they have witnessed the best footballers in t
 <br>
 I used Dimple.js and D3.js to create my visualizations. The first chart I came up is drawn below and this chart was created with the expectation that the user understands the idea behind the line chart being displayed. Below is the image of index_trial1.html, which shows the basic outlay of the chart.
 <br>
-![alt tag](https://github.com/baidrahul9/DAN-Data-Visualisation/blob/master/images/Initial.png)
+![alt tag](https://raw.githubusercontent.com/baidrahul9/DAN-Data-Visualisation/master/images/Initial.png)
 <br>
 <br>
 **Feedback #1:**
@@ -49,11 +49,11 @@ Since this was my first D3 and Dimple project, I believe I have added enough int
 <br>
 Image without dynamic legend:
 <br>
-![alt tag](https://github.com/baidrahul9/DAN-Data-Visualisation/blob/master/images/Final_1.png)
+![alt tag](https://raw.githubusercontent.com/baidrahul9/DAN-Data-Visualisation/master/images/Final%201.png)
 <br>
 Image with dynamic legend of two legends, Christiano Ronaldo and Lionel Messi:
 <br>
-![alt tag](https://github.com/baidrahul9/DAN-Data-Visualisation/blob/master/images/Final_2.png)
+![alt tag](https://raw.githubusercontent.com/baidrahul9/DAN-Data-Visualisation/master/images/Final%202.png)
 <br>
 <br>
 As we can see, it was always either Christiano or Lionel Messi that had the best goals per game ratio across all season but 2015-16 during which Luis Suarez scored more goals and had more assists than any other top player in the League. This can be attributed to the fact that Messi and Ronaldo play on the right and left forward positions whereas Suarez is out-an-out a striker. But, we should also keep in mind the consistency that Ronaldo and Messi have shown throughout the years while others have had careers with both highs and lows. This is what sets them apart! All the other players have been involved in the talks of Ballon d'or and have the best attacking statistics in the last 6 years but Messi and Ronaldo have won it all the time and I believe Christiano Ronaldo is going to win again in 2016 equalling Messi's tally of 3 trophies. With almost 1 goal per game and number of assists in double digits, we can clearly see who the 'champions' really are.
