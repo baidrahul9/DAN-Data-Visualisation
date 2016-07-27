@@ -33,8 +33,9 @@
         var myBarChart = new dimple.chart(svg, data);
          
         var myBary = myBarChart.addMeasureAxis("y", "assists");
+        //This is where the chart breaks and shows only one line that too at 100%
         myBary.tickFormat = '%';
-        myBary.overrideMin = 0.5;
+        myBary.overrideMin = 0;
         myBary.overrideMax = 1;
 
         var myBarx = myBarChart.addTimeAxis("x", "year");
