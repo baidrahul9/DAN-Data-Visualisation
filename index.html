@@ -6,7 +6,7 @@
   <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
     <style>
     circle.dimple-series-1{
-    	fill:red;
+      fill:red;
     }
     </style>
     <script type="text/javascript">
@@ -19,7 +19,7 @@
         var margin = 75,
               width = 1400 - margin,
               height = 600 - margin;
-	d3.select('body').append('h2').text('Players catching up to Ronaldo and Messi');
+  d3.select('body').append('h2').text('Players catching up to Ronaldo and Messi');
         
         var svg = d3.select("body")
                     .append("svg")
@@ -31,12 +31,19 @@
         Dimple.js Chart construction code
       */
         var myBarChart = new dimple.chart(svg, data);
+         
+        var myBary = myBarChart.addMeasureAxis("y", "assists");
+        myBary.tickFormat = '%';
+        myBary.overrideMin = 0.5;
+        myBary.overrideMax = 1;
+
+        var myBarx = myBarChart.addTimeAxis("x", "year");
+        myBarx.dateParseFormat = "%Y";
+        myBarx.tickFormat = "%Y";
+        myBarx.title = 'Year';
+
         myBarChart.setBounds(75, 30, 480, 330)
-        var myBarX = myBarChart.addMeasureAxis("x", ["goals"]);
-        myBarX.title = "Goals distribution across the years"
-        var myBary = myBarChart.addCategoryAxis("y", "year");
-        myBary.addOrderRule("Date");
-        myBarChart.addSeries("player", dimple.plot.bar);
+        myBarChart.addSeries('player', dimple.plot.line);
         myBarChart.addLegend(570, 30, 200, 100, "Right")
         myBarChart.draw();
               
@@ -59,66 +66,26 @@
         myChart.setBounds(75, 800, 700, 500)
         myChart.addSeries('player', dimple.plot.line);
         myChart.addSeries(["goals", "appearance","assists","player"], dimple.plot.scatter);
+        //myChart.assignColor("Christiano Ronaldo", "red", "black", 0.8);
         var myLegend = myChart.addLegend(650, 780, 200, 100, "Right");
         myChart.draw();
           
-        // This is a critical step.  By doing this we orphan the legend. This
-        // means it will not respond to graph updates.  Without this the legend
-        // will redraw when the chart refreshes removing the unchecked item and
-        // also dropping the events we define below.
-        
-        myChart.legends = [];
-        // This block simply adds the legend title. I put it into a d3 data
-        // object to split it onto 2 lines.  This technique works with any
-        // number of lines, it isn't dimple specific.
-        svg.selectAll("title_text")
-            .data(["Click legend to show/hide players:"])
-            .enter()
-            .append("text")
-            .attr("x", 680)
-            .attr("y", 770)
-            .style("font-family", "sans-serif")
-            .style("font-size", "10px")
-            .style("color", "Black")
-            .text(function (d) { return d; });
-        // Get a unique list of player values to use when filtering
-        
-        var filterValues = dimple.getUniqueValues(data, "player");
-        
-        // Get all the rectangles from our now orphaned legend
-        myLegend.shapes.selectAll("rect")
-        // Add a click event to each rectangle
-        
-        .on("click", function (e) {
-        // This indicates whether the item is already visible or not
-            
-          var hide = false;
-          var newFilters = [];
-        // If the filters contain the clicked shape hide it
-            
-          filterValues.forEach(function (f) {
-            if (f === e.aggField.slice(-1)[0]) {
-                hide = true;
-              }
-            else {
-                newFilters.push(f);
-              }
-            });
-            // Hide the shape or show it
-            if (hide) {
-              d3.select(this).style("opacity", 0.2);
-            } else {
-              newFilters.push(e.aggField.slice(-1)[0]);
-              d3.select(this).style("opacity", 0.8);
-            }
-            // Update the filters
-            filterValues = newFilters;
-            // Filter the data
-            myChart.data = dimple.filterData(data, "player", filterValues);
-            // Passing a duration parameter makes the chart animate. Without
-            // it there is no transition
-            myChart.draw(800);
-          });
+   
+
+            d3.selectAll('path')
+    .style('opacity', 0.75)
+    .on('mouseover', function(e) {
+      d3.select(this)
+        .style('stroke-width', '8px')
+        .style('opacity', 1)
+        .attr('z-index', '1');
+  }).on('mouseleave', function(e) {
+      d3.select(this)
+        .style('stroke-width', '2px')
+        .style('opacity', 0.75)
+        .attr('z-index', '0');
+  });
+         
         };
       </script>
   </head>
