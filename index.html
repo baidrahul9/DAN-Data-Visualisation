@@ -19,7 +19,7 @@
         var margin = 75,
               width = 1400 - margin,
               height = 600 - margin;
-	d3.select('body').append('h2').text('La Liga Top Scorers 2010-15');
+	d3.select('body').append('h2').text('Players catching up to Ronaldo and Messi');
         
         var svg = d3.select("body")
                     .append("svg")
@@ -30,13 +30,25 @@
       /*
         Dimple.js Chart construction code
       */
-         var myBarChart = new dimple.chart(svg, data);
-              myBarChart.setBounds(75, 30, 480, 330)
-              myBarChart.addMeasureAxis("x", "goals");
-              var myBary = myBarChart.addCategoryAxis("y", "year");
-              myBary.addOrderRule("Date");
-              myBarChart.addSeries("player", dimple.plot.bar);
-              myBarChart.draw();
+        var myBarChart = new dimple.chart(svg, data);
+        myBarChart.setBounds(75, 30, 480, 330)
+        var myBarX = myBarChart.addMeasureAxis("x", ["goals"]);
+        myBarX.title = "Goals distribution across the years"
+        var myBary = myBarChart.addCategoryAxis("y", "year");
+        myBary.addOrderRule("Date");
+        myBarChart.addSeries("player", dimple.plot.bar);
+        myBarChart.addLegend(570, 30, 200, 100, "Right")
+        myBarChart.draw();
+              
+        var myBarAssistChart = new dimple.chart(svg, data);
+        myBarAssistChart.setBounds(75, 400, 480, 330)
+        var myBarAssistX = myBarAssistChart.addMeasureAxis("x", "assists");
+        myBarAssistX.title = "Assists distribution across the years"
+        var myBarAssisty = myBarAssistChart.addCategoryAxis("y", "year");
+        myBarAssisty.addOrderRule("Date");
+        myBarAssistChart.addSeries("player", dimple.plot.bar);
+        myBarAssistChart.addLegend(600, 400, 200, 100, "Right")
+        myBarAssistChart.draw();
 
         var myChart = new dimple.chart(svg, data);
         var x = myChart.addTimeAxis("x", "year"); 
@@ -44,10 +56,10 @@
         x.dateParseFormat = "%Y";
         x.tickFormat = "%Y";
         x.title = 'Year';
-        myChart.setBounds(75, 500, 800, 630)
+        myChart.setBounds(75, 800, 700, 500)
         myChart.addSeries('player', dimple.plot.line);
-        myChart.addSeries(["goals", "appearance","player"], dimple.plot.scatter);
-        var myLegend = myChart.addLegend(700, 420, 200, 100, "Right");
+        myChart.addSeries(["goals", "appearance","assists","player"], dimple.plot.scatter);
+        var myLegend = myChart.addLegend(650, 780, 200, 100, "Right");
         myChart.draw();
           
         // This is a critical step.  By doing this we orphan the legend. This
@@ -63,8 +75,8 @@
             .data(["Click legend to show/hide players:"])
             .enter()
             .append("text")
-            .attr("x", 1050)
-            .attr("y", 10)
+            .attr("x", 680)
+            .attr("y", 770)
             .style("font-family", "sans-serif")
             .style("font-size", "10px")
             .style("color", "Black")
